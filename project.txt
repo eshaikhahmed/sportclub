@@ -1,0 +1,25 @@
+Project name-The Rising star sport club
+Aim:Try to bring awareness and evaluation in sports in youngsters,childrens and letting this opportunity to those who are lack of sport opprtunity even having sports key skills 
+
+Description-
+1) This is a crucial factor in having an online sports club website, that keeps itself fresh and live and updated at all times.
+2) This is sport club management system...to be well organized sports activities it need to be user friendly as well as well managed..
+3)there will be 3 major roles in this web app for making it user freindly nature...roles are namely admin,manager,user
+their respective jobs are
++admin-admin will have control over this app for user part eg ..adding removing users and for sport section he can add or remove sport 
++manager-he will manage the sport created ny admin,eg creating new batches,new offers according to season,sheduling sports   and launching them...
++user- ..after login he will able to see the all sports which are available in club..when user will click on perticular sport then he will get the details of that sport like offers,batch timings,fees if user wants to proceed further he can subscribe to that sport
+ after subscrbing we will notift to admin .....admin will transfer this to manager...if manager agree and accept  then admin can add that user to that sport 
+___________________________________________________________________________________
+what differnce
+1) we have given differnt roles for different tasks using manager,admin,user so each of three will handle indivisuall
+2) we also trying to keep differnt account logins for this three for secuirity so system could be transparent 
+3) auto renewal of subscription  
+4) two factor authentication while login for secuirity purpose
+5) personalised suggestion and comments from club for improvement 
+6) as now we have seen due to pandemic at some extents sprt lovers have much restrictions so we are thinking that indoor games to include in this sports club so that there would be safeside for players so we are trying to add online mode 
+7) providing score cards with personalised tips and evaluation guide of preogress
+8) certification,awards for participants as well as winners for special achievements
+9) interactive sessions, events with sports expert for delivering confidence in participants..special interactive sessions for awareness of sports in child
+10) brain teaser games for infants and teenagers to create interest im sports in children 
+11)special efforts for rural area participants so that village side sports lovers can get this opportunity
