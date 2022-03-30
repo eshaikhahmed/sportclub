@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Join Membership</title>
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+
+<!-- create navigation bar ( header) -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">SportClub</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Home</a></li>
+
+            <li class="active"><a href="/member/registration">Join Membership</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<br/><br/>
+<section class="member-register-section">
+    <div class="container">
+        <h1 th:text="${add} ? 'Member Registration:' : 'Edit:'"/>
+        <form th:action="${add} ? @{/member/registration/add} : @{/member/registration/{userId}/edit(userId=${contact.id})}"
+              th:object="${contact}" method="POST">
+            <div class="form-group">
+                <label for="Name"> First Name </label> :
+                <input type="text" th:field="*{firstName}"
+                       placeholder="First Name" autofocus="autofocus">
+            </div>
+
+            <div class="form-group">
+                <label for="Name"> Last Name </label> :
+                <input type="text" th:field="*{lastName}"
+                       placeholder="Last Name">
+            </div>
+
+            <div class="form-group">
+                <label for="Name"> Email </label> :
+                <input type="text" th:field="*{email}"
+                       placeholder="Email">
+            </div>
+
+
+            <div class="form-group">
+                <label for="comment">Address:</label>
+                <textarea class="form-control" rows="5" th:field="*{address}"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Notes:</label>
+                <textarea class="form-control" rows="5" th:field="*{notes}"></textarea>
+            </div>
+            <input class="btn btn-primary" type="submit" th:value="${add} ? 'Register' : 'Update'"/>
+        </form>
+    </div>
+</section>
+<br/>
+<!-- Check if errorMessage is not null and not empty -->
+<div th:if="${errorMessage}" th:utext="${errorMessage}" class="error"/>
+</body>
+</html>

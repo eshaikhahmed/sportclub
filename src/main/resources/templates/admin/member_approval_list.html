@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Member Approval List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Member Approval List</h1>
+
+<div>
+    <nobr>
+<!--        <a th:href="@{/membe/add}">Add Contact</a> |-->
+        <a th:href="@{/}">Back to Index</a>
+    </nobr>
+</div>
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Edit</th>
+        </tr>
+        <tr th:each ="contact : ${contacts}">
+            <td><a th:utext="${contact.id}">...</a></td>
+            <td><a th:utext="${contact.firstName}">...</a></td>
+            <td th:utext="${contact.email}">...</td>
+            <td><a >Edit</a></td>
+        </tr>
+    </table>
+</div>
+<br/><br/>
+
+</body>
+</html>
