@@ -65,6 +65,9 @@ public class AdminController {
             return "redirect:/admin/member-approval/list?approved=false";
         }
 
+        memberEntity.setStatus("APPROVED");
+        memberService.saveMember(memberEntity);
+
         UserEntity userEntity = new UserEntity();
         userEntity.setEmail(memberEntity.getEmail());
         userEntity.setFirstName(memberEntity.getFirstName());
