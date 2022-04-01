@@ -26,7 +26,7 @@
             </li>
 
             <li class="nav-item" sec:authorize="isAuthenticated()">
-                <a href="/admin/manager/list" th:if="${#authentication.getPrincipal().getUserEntity().getUserType() == 'ADMIN'}">Manager List</a>
+                <a class="nav-link"  href="/admin/manager/list" th:if="${#authentication.getPrincipal().getUserEntity().getUserType() == 'ADMIN'}">Manager List</a>
             </li>
             <li class="nav-item" sec:authorize="isAnonymous()">
                 <a class="nav-link" href="/member/registration">Apply Membership</a>
@@ -47,38 +47,33 @@
 
 <section class="member-register-section">
     <div class="entroll-form">
-        <h1 class="text-center" th:text="${add} ? 'Apply for membership' : 'Edit:'"/>
-        <form class="entroll" th:action="${add} ? @{/member/registration/add} : @{/member/registration/{userId}/edit(userId=${contact.id})}"
-              th:object="${contact}" method="POST" onSubmit="return onBeforeFormSubmit();">
+        <h1 class="text-center" th:text="${add} ? 'Add Sport' : 'Edit:'"/>
+        <form class="entroll" th:action="${add} ? @{/admin/sport/add} : @{/member/registration/{userId}/edit(userId=${contact.id})}"
+              th:object="${contact}" enctype="multipart/form-data" method="POST">
             <div class="form-group">
-                <label for="Name"> First Name </label> :
-                <input type="text" th:field="*{firstName}"  class="form-control"
-                       placeholder="First Name" autofocus="autofocus">
-            </div>
-
-            <div class="form-group">
-                <label for="Name"> Last Name </label> :
-                <input type="text" th:field="*{lastName}"  class="form-control"
-                       placeholder="Last Name">
-            </div>
-
-            <div class="form-group">
-                <label for="Name"> Email </label> :
-                <input type="text" th:field="*{email}"  class="form-control"
-                       placeholder="Email">
+                <label for="Name"> Sport Name </label> :
+                <input type="text" th:field="*{sportName}"  class="form-control"
+                       placeholder="Sport Name" autofocus="autofocus" required>
             </div>
 
 
             <div class="form-group">
-                <label for="comment">Address:</label>
-                <textarea class="form-control" rows="5" th:field="*{address}"  ></textarea>
+                <label for="Image1"> Image </label> :
+                <input type="file" name="image1"  class="form-control" required>
             </div>
 
             <div class="form-group">
-                <label for="notes">Notes:</label>
-                <textarea class="form-control" rows="5" th:field="*{notes}"  ></textarea>
+                <label for="Image2"> Extra Image </label> :
+                <input type="file" name="image2"  class="form-control">
             </div>
-            <input class="btn btn-primary" type="submit" th:value="${add} ? 'Register' : 'Update'"/>
+
+            <div class="form-group">
+                <label for="Description">Description:</label>
+                <textarea class="form-control" rows="5" th:field="*{sportDescription}"  ></textarea>
+            </div>
+
+
+            <input class="btn btn-primary" type="submit" th:value="${add} ? 'Add' : 'Update'"/>
 
             <div
                     id="email_alert"

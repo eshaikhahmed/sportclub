@@ -1,3 +1,37 @@
+@font-face {
+    font-family: Proxima;
+    src: url(/css/proximanova-regular-webfont.woff);
+}
+
+
 .member-register-section{
-    margin: 10px 10% 10px 10%;
+    font-family: Proxima;
+    background-color: #FFFFFF;
+    padding: 20px 10% 20px 10%;
+}
+
+.table-section{
+  font-family: Proxima;
+  background-color: #FFFFFF;
+  padding: 20px 10% 20px 10%;
+}
+
+.new-h2 {
+  font-weight: 600;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  font-size: 3rem;
+}
+
+
+.entroll-form {
+  font-family: Proxima;
+  margin: 10px 15% 10px 15%;
+}
+
+.entroll{
+  background-color: #FFFFFF;
+  /* border: 4px solid #FFFFFF; */
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

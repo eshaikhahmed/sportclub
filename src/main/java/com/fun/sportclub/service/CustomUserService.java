@@ -1,9 +1,9 @@
 package com.fun.sportclub.service;
 
 
+import com.fun.sportclub.entity.CustomUserDetails;
 import com.fun.sportclub.entity.UserEntity;
 import com.fun.sportclub.repository.UserRepository;
-import com.fun.sportclub.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,10 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class CustomUserService implements UserDetailsService {
@@ -46,7 +43,14 @@ public class CustomUserService implements UserDetailsService {
         }
 
         UserEntity userEntity = user.get(0);
-        return new User(userEntity.getEmail(), userEntity.getPassword(), getAuthority(userEntity.getUserType()));
+
+        User userE = new User(userEntity.getEmail(), userEntity.getPassword(), getAuthority(userEntity.getUserType()));
+        CustomUserDetails customUserDetail=new CustomUserDetails();
+        customUserDetail.setUser(userE);
+        customUserDetail.setAuthorities((Set<GrantedAuthority>) userE.getAuthorities());
+        customUserDetail.setUserEntity(userEntity);
+
+        return customUserDetail;
     }
 
     private Collection<? extends GrantedAuthority> getAuthority(String role_user) {

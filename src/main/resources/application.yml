@@ -18,7 +18,3 @@ spring:
 upload:
   customer:
     path: C://uploads//customer//
-  driver:
-    path: C://uploads//driver//
-  cab_info:
-    path: C://uploads//cabinfo//
