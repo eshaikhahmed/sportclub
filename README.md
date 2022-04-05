@@ -16,7 +16,7 @@ Software required to run
 - Click on File > Select Open
 - Select the directory of this project where you have saved this project
 - Wait for sometime to sync up all depedent jars.
-- Click on Add Run configurations(You can find in Run )
+- Click on Add Run configurations(You can find in 'Run' menu at top )
 - Add Application > Type name 'Run' > Select Build and run (Select here note icon) > Search by Name > Select 'SportclubApplication'
 - Select ok > Apply > Ok
 
