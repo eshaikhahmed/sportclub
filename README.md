@@ -1,5 +1,5 @@
 # Sport Club
-Application allow to manage sport club activities
+Web app allow to manage sport club activities
 
 # Project Setup
 Software required to run
@@ -9,7 +9,7 @@ Software required to run
 
 
 # Before running project in Intelij
-- provide valid credentials for mysql in 'src/resources/application.yml' on line no. 11, 12
+- Provide valid credentials for mysql in 'src/resources/application.yml' on line no. 11, 12
 - Create one database in mysql 'sportclub'
 
 # Intelij steps to run application
