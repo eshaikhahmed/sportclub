@@ -1,76 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="ISO-8859-1">
-    <title>Manager List</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
-    <link rel="stylesheet" href="/css/style.css"/>
-</head>
+<head th:replace="fragment/header :: header"></head>
 <body>
 
-<!-- create navigation bar ( header) -->
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <a class="navbar-brand" href="/">SportClub</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-            <li class="nav-item" sec:authorize="isAuthenticated()">
-                <a class="nav-link"  href="/admin/member-approval/list" th:if="${#authentication.getPrincipal().getUserEntity().getUserType() == 'ADMIN'}">Member Approvals</a>
-            </li>
-
-            <li class="nav-item" sec:authorize="isAuthenticated()">
-                <a href="/admin/manager/list" th:if="${#authentication.getPrincipal().getUserEntity().getUserType() == 'ADMIN'}">Manager List</a>
-            </li>
-            <li class="nav-item" sec:authorize="isAnonymous()">
-                <a class="nav-link" href="/member/registration">Apply Membership</a>
-            </li>
-
-            <li class="nav-item" sec:authorize="isAnonymous()">
-                <a class="nav-link" href="/login">Login</a>
-            </li>
-            <li class="nav-item" sec:authorize="isAuthenticated()">
-                <a class="nav-link" href="/logout">Sign Out</a>
-            </li>
+<div th:replace="fragment/navbar :: navbar"></div>
 
 
-
-        </ul>
+<div class="table-section">
+    <h2 class="new-h2">Member Approval List</h2>
+    <div>
+        <nobr>
+            <a th:href="@{/admin/manager/add}">Add Manager</a> |
+            <a th:href="@{/}">Back to Index</a>
+        </nobr>
     </div>
-</nav>
+    <br/><br/>
 
-<h1>Member Approval List</h1>
-
-<div>
-    <nobr>
-        <a th:href="@{/admin/manager/add}">Add Manager</a> |
-        <a th:href="@{/}">Back to Index</a>
-    </nobr>
-</div>
-<br/><br/>
-<div>
-    <table border="1">
+    <table class="table table-hover">
+        <thead>
         <tr>
             <th>Id</th>
             <th>Name</th>
             <th>Email</th>
             <th>Edit</th>
         </tr>
+        </thead>
+        <tbody>
         <tr th:each ="contact : ${contacts}">
             <td><a th:utext="${contact.id}">...</a></td>
             <td><a th:utext="${contact.firstName}">...</a></td>
             <td th:utext="${contact.email}">...</td>
             <td><a >Edit</a></td>
         </tr>
+        </tbody>
     </table>
 </div>
 <br/><br/>
 
+
+<div th:replace="fragment/footer :: footer"></div>
 </body>
-</html>Q
+</html>

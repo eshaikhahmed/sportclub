@@ -8,8 +8,9 @@
 <section class="member-register-section">
     <div class="entroll-form">
         <h1 class="text-center" th:text="${add} ? 'Add Sport' : 'Edit:'"/>
-        <form class="entroll" th:action="${add} ? @{/admin/sport/add} : @{/member/registration/{userId}/edit(userId=${contact.id})}"
+        <form class="entroll" th:action="${add} ? @{/admin/sport/add} : @{/admin/sport/{userId}/edit(userId=${contact.id})}"
               th:object="${contact}" enctype="multipart/form-data" method="POST">
+            <input type="hidden" th:field="*{Id}" />
             <div class="form-group">
                 <label for="Name"> Sport Name </label> :
                 <input type="text" th:field="*{sportName}"  class="form-control"

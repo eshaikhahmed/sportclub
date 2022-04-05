@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
 <head th:replace="fragment/header :: header"></head>
@@ -7,29 +8,37 @@
 
 <section class="member-register-section">
     <div class="entroll-form">
-        <h1 class="text-center" th:text="${add} ? 'Add Sport' : 'Edit:'"/>
-        <form class="entroll" th:action="${add} ? @{/admin/sport/add} : @{/member/registration/{userId}/edit(userId=${contact.id})}"
+        <h1 class="text-center" >Edit Batch</h1>
+        <form class="entroll" th:action="@{/manager/batch/edit/} + ${contact.Id}"
               th:object="${contact}" enctype="multipart/form-data" method="POST">
+            <input type="hidden" th:field="*{Id}"  >
             <div class="form-group">
-                <label for="Name"> Sport Name </label> :
-                <input type="text" th:field="*{sportName}"  class="form-control"
+                <label for="Name"> Batch Name </label> :
+                <input type="text" th:field="*{batchName}"  class="form-control"
                        placeholder="Sport Name" autofocus="autofocus" required>
             </div>
 
 
             <div class="form-group">
-                <label for="Image1"> Image </label> :
-                <input type="file" name="image1"  class="form-control" required>
+                <label > Batch Date </label> :
+                <input type="text" th:field="*{batchDate}"  class="form-control" required>
             </div>
 
             <div class="form-group">
-                <label for="Image2"> Extra Image </label> :
-                <input type="file" name="image2"  class="form-control">
+                <label > Batch Time </label> :
+                <input type="text" th:field="*{batchTime}"  class="form-control">
             </div>
 
             <div class="form-group">
-                <label for="Description">Description:</label>
-                <textarea class="form-control" rows="5" th:field="*{sportDescription}"  ></textarea>
+                <label >Sport:</label>
+                <select  class="form-control" required="required"
+                         name="sport" >
+                    <option th:each="sport : ${sportList}"
+                            th:value="${sport.Id}"
+                            th:selected="${contact.sport.Id eq sport.Id}"
+                            th:text="${sport.sportName}" >
+                    </option>
+                </select>
             </div>
 
 

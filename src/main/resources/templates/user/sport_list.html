@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
 <head th:replace="fragment/header :: header"></head>
 <body>
 
 <div th:replace="fragment/navbar :: navbar"></div>
 
-
 <div class="container">
-    <h1>Sport List</h1>
-    <a  class="btn btn-info" th:href="@{/admin/sport/add}">Add Sport</a>
+    <h1>Sport</h1>
 </div>
 <div class="container">
     <div class="row">
@@ -18,7 +16,7 @@
                 <div class="card-body">
                     <h4 class="card-title" th:utext="${contact.sportName}"></h4>
                     <p class="card-text" th:utext="${contact.sportDescription}"></p>
-                    <a th:href="@{/admin/sport/} + ${contact.Id} + '/edit'" class="btn btn-primary">Edit</a>
+                    <a th:href="@{/user/subscribe/} + ${contact.Id}" class="btn btn-primary">Subscribe</a>
                 </div>
             </div>
         </div>
@@ -26,6 +24,7 @@
 </div>
 </div>
 <br/><br/>
+
 
 <div th:replace="fragment/footer :: footer"></div>
 </body>

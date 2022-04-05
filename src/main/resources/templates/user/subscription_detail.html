@@ -1,0 +1,66 @@
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head th:replace="fragment/header :: header"></head>
+<body>
+
+<div th:replace="fragment/navbar :: navbar"></div>
+
+<div class="container">
+    <div class="row">
+        <h2>Details</h2>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td th:utext="${contact.user.firstName} + ' ' + ${contact.user.lastName}"></td>
+                </tr>
+                <tr>
+                    <td>Sport</td>
+                    <td th:utext="${contact.sport.sportName}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Batch</h2>
+        <table class="table">
+            <tbody>
+            <tr>
+                <td>Batch Name</td>
+                <td th:utext="${batch.batchName}"></td>
+            </tr>
+            <tr>
+                <td>Batch Date</td>
+                <td th:utext="${batch.batchDate}"></td>
+            </tr>
+            <tr>
+                <td>Batch Time</td>
+                <td th:utext="${batch.batchTime}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2>Batch Members</h2>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each ="contact : ${members}">
+                    <td>Sam</td>
+                    <td>Cool</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+<br/><br/>
+
+
+<div th:replace="fragment/footer :: footer"></div>
+</body>
+</html>

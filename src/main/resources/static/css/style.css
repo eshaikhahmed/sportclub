@@ -3,6 +3,17 @@
     src: url(/css/proximanova-regular-webfont.woff);
 }
 
+.intro-section{
+    font-family: Proxima;
+    background-color: #FFFFFF;
+    padding: 20px 10% 20px 10%;
+}
+
+.history-section{
+    font-family: Proxima;
+    background-color: #F7F7F7;
+    padding: 20px 10% 20px 10%;
+}
 
 .member-register-section{
     font-family: Proxima;
@@ -34,4 +45,18 @@
   /* border: 4px solid #FFFFFF; */
   padding: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 350px;
+ }
+
+.navbar.navbar-expand-md.bg-dark.navbar-dark{
+    background-color: #2296BC!important;
+    font-weight: bold;
+}
+
+.navbar-brand{
+    font-size: 28px;
 }

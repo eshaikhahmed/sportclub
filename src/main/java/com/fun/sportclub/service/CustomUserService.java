@@ -53,6 +53,10 @@ public class CustomUserService implements UserDetailsService {
         return customUserDetail;
     }
 
+    public List<UserEntity> findByUserType(String userType){
+        return userRepository.findByUserType(userType);
+    }
+
     private Collection<? extends GrantedAuthority> getAuthority(String role_user) {
         return Collections.singletonList(new SimpleGrantedAuthority(role_user));
     }
