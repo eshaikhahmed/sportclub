@@ -1,4 +1,4 @@
-# sportclub
+# Sport Club
 Application allow to manage sport club activities
 
 # Project Setup
